@@ -367,11 +367,17 @@ table.dtbl .del-btn:hover{color:#b04040;}
 
   <div class="step" id="s3"><div class="q-ey">C.</div><div class="q-t">你與新人的關係是？</div><div class="opts"><div class="oc" onclick="pick('relation','男方親人',this)"><div class="rd"></div>男方親人</div><div class="oc" onclick="pick('relation','女方親人',this)"><div class="rd"></div>女方親人</div><div class="oc" onclick="pick('relation','男方朋友',this)"><div class="rd"></div>男方朋友</div><div class="oc" onclick="pick('relation','女方朋友',this)"><div class="rd"></div>女方朋友</div><div class="oc" onclick="pick('relation','共同朋友',this)"><div class="rd"></div>共同朋友</div></div><div class="err-msg" id="e3">請選擇你與新人的關係</div><div class="btn-row"><button class="bb" onclick="back(3)">← 返回</button><button class="bn" onclick="next(3)">繼續 →</button></div></div>
 
-  <div class="step" id="s4"><div class="q-ey">D.</div><div class="q-t">加上你自己，總共幾個人出席呢？</div><div class="opts"><div class="oc" onclick="pick('count','1',this)"><div class="rd"></div>1 位</div><div class="oc" onclick="pick('count','2',this)"><div class="rd"></div>2 位</div><div class="oc" onclick="pick('count','3',this)"><div class="rd"></div>3 位</div><div class="oc" onclick="pick('count','其他',this)"><div class="rd"></div>其他<input type="number" min="4" max="20" placeholder="人數" style="width: 100px;" id="countOther" onclick="event.stopPropagation()" oninput="S.count=this.value"/></div></div><div class="err-msg" id="e4">請選擇出席人數</div><div class="btn-row"><button class="bb" onclick="back(4)">← 返回</button><button class="bn" onclick="next(4)">繼續 →</button></div></div>
+  <div class="step" id="s4"><div class="q-ey">D.</div><div class="q-t">加上你自己，總共幾個人出席呢？</div><div class="opts"><div class="oc" onclick="pick('count','1',this)"><div class="rd"></div>1 位</div><div class="oc" onclick="pick('count','2',this)"><div class="rd"></div>2 位</div><div class="oc" onclick="pick('count','3',this)"><div class="rd"></div>3 位</div><div class="oc" onclick="pick('count','其他',this)"><div class="rd"></div>其他
+    <input type="number" min="4" max="20" placeholder="人數" style="width: 100px;" id="countOther" onclick="event.stopPropagation()" onfocus="pick('count','其他',this.closest('.oc'))" oninput="S.count=this.value"/>
+  </div></div><div class="err-msg" id="e4">請選擇出席人數</div><div class="btn-row"><button class="bb" onclick="back(4)">← 返回</button><button class="bn" onclick="next(4)">繼續 →</button></div></div>
 
-  <div class="step" id="s5"><div class="q-ey">E.</div><div class="q-t">需要幾套素食餐點呢？</div><div class="opts"><div class="oc" onclick="pick('veg','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('veg','1',this)"><div class="rd"></div>1 套</div><div class="oc" onclick="pick('veg','2',this)"><div class="rd"></div>2 套</div><div class="oc" onclick="pick('veg','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="20" placeholder="套數" style="width: 100px;" id="vegOther" onclick="event.stopPropagation()" oninput="S.veg=this.value"/></div></div><div class="err-msg" id="e5">請選擇素食餐點數量</div><div class="btn-row"><button class="bb" onclick="back(5)">← 返回</button><button class="bn" onclick="next(5)">繼續 →</button></div></div>
+  <div class="step" id="s5"><div class="q-ey">E.</div><div class="q-t">需要幾套素食餐點呢？</div><div class="opts"><div class="oc" onclick="pick('veg','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('veg','1',this)"><div class="rd"></div>1 套</div><div class="oc" onclick="pick('veg','2',this)"><div class="rd"></div>2 套</div><div class="oc" onclick="pick('veg','其他',this)"><div class="rd"></div>其他
+  <input type="number" min="3" max="20" placeholder="套數" style="width: 100px;" id="vegOther" onclick="event.stopPropagation()" onfocus="pick('veg','其他',this.closest('.oc'))" oninput="S.veg=this.value"/>
+</div></div><div class="err-msg" id="e5">請選擇素食餐點數量</div><div class="btn-row"><button class="bb" onclick="back(5)">← 返回</button><button class="bn" onclick="next(5)">繼續 →</button></div></div>
 
-  <div class="step" id="s6"><div class="q-ey">F.</div><div class="q-t">需要幾張兒童座椅呢？</div><div class="opts"><div class="oc" onclick="pick('kids','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('kids','1',this)"><div class="rd"></div>1 張</div><div class="oc" onclick="pick('kids','2',this)"><div class="rd"></div>2 張</div><div class="oc" onclick="pick('kids','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="10" placeholder="張數" style="width: 100px;" id="kidsOther" onclick="event.stopPropagation()" oninput="S.kids=this.value"/></div></div><div class="err-msg" id="e6">請選擇兒童座椅數量</div><div class="btn-row"><button class="bb" onclick="back(6)">← 返回</button><button class="bn" onclick="next(6)">繼續 →</button></div></div>
+  <div class="step" id="s6"><div class="q-ey">F.</div><div class="q-t">需要幾張兒童座椅呢？</div><div class="opts"><div class="oc" onclick="pick('kids','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('kids','1',this)"><div class="rd"></div>1 張</div><div class="oc" onclick="pick('kids','2',this)"><div class="rd"></div>2 張</div><div class="oc" onclick="pick('kids','其他',this)"><div class="rd"></div>其他
+  <input type="number" min="3" max="10" placeholder="張數" style="width: 100px;" id="kidsOther" onclick="event.stopPropagation()" onfocus="pick('kids','其他',this.closest('.oc'))" oninput="S.kids=this.value"/>
+</div></div><div class="err-msg" id="e6">請選擇兒童座椅數量</div><div class="btn-row"><button class="bb" onclick="back(6)">← 返回</button><button class="bn" onclick="next(6)">繼續 →</button></div></div>
 
   <div class="step" id="s7">
     <div class="q-ey">G.</div>
@@ -380,7 +386,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
       <div class="oc" onclick="pick('card','索取電子喜帖',this)">
         <div class="rd"></div>
         索取電子喜帖
-        <input type="email" placeholder="輸入 Email" style="flex:1;min-width:0;margin-left:12px;padding:6px 2px;border:none;border-bottom:1px solid var(--gold-xl);background:transparent;font-size:14px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);outline:none;" id="cardEmail" onclick="event.stopPropagation()" oninput="S.email=this.value"/>
+        <input type="email" placeholder="輸入 Email" style="flex:1;min-width:0;margin-left:12px;padding:6px 2px;border:none;border-bottom:1px solid var(--gold-xl);background:transparent;font-size:14px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);outline:none;" id="cardEmail" onclick="event.stopPropagation()" onfocus="pick('card','索取電子喜帖',this.closest('.oc'))" oninput="S.email=this.value"/>
       </div>
       <div class="oc" onclick="pick('card','索取實體喜帖',this)">
         <div class="rd"></div>
@@ -490,7 +496,7 @@ const QR_B64='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcBAMAAADpdNKy
 const S={name:'',attend:null,relation:null,count:null,veg:null,kids:null,card:null,email:'',wish:''};
 let cur=1,editMode=false,editIdx=-1;
 const ADMIN_PW='20260912';
-const GAS_URL='https://script.google.com/macros/s/AKfycbz1i35M_e3SPTLeP3UM5UpIVS2n42mNFxtBuXnNjYk9MHFMdlYa6gRl8zAmAS0rWQX1VQ/exec';
+const GAS_URL='https://script.google.com/macros/s/AKfycbwLXyfI-jiCHLaMHDqV0fi-BDjnO1v9ESl5-rjoQ70nZ9RargepN3y0d725PRuYjmouCg/exec';
 const WEDDING=new Date(2026,8,12,10,0,0);
 
 document.getElementById('qrImg').src=QR_B64;
@@ -550,12 +556,39 @@ else if(step===3){
 }
 else if(step===4){
   if(!S.count){document.getElementById('e4').style.display='block';return;}
+  if(S.count==='其他'||!document.getElementById('countOther').value){
+    const v=parseInt(document.getElementById('countOther').value);
+    if(S.count==='其他'&&(!v||v<4)){
+      document.getElementById('e4').textContent='請輸入人數（4 以上）';
+      document.getElementById('e4').style.display='block';return;
+    }
+  }
   const skipEF=['男方朋友','女方朋友','共同朋友'];
   if(skipEF.includes(S.relation)) show(7);
   else show(5);
 }
-else if(step===5){if(!S.veg){document.getElementById('e5').style.display='block';return;}show(6);}
-else if(step===6){if(!S.kids){document.getElementById('e6').style.display='block';return;}show(7);}
+else if(step===5){
+  if(!S.veg){document.getElementById('e5').style.display='block';return;}
+  if(S.veg==='其他'){
+    const v=parseInt(document.getElementById('vegOther').value);
+    if(!v||v<3){
+      document.getElementById('e5').textContent='請輸入素食套數（3 以上）';
+      document.getElementById('e5').style.display='block';return;
+    }
+  }
+  show(6);
+}
+else if(step===6){
+  if(!S.kids){document.getElementById('e6').style.display='block';return;}
+  if(S.kids==='其他'){
+    const v=parseInt(document.getElementById('kidsOther').value);
+    if(!v||v<3){
+      document.getElementById('e6').textContent='請輸入兒童座椅張數（3 以上）';
+      document.getElementById('e6').style.display='block';return;
+    }
+  }
+  show(7);
+}
 else if(step===7){
   if(!S.card){document.getElementById('e7').style.display='block';return;}
   if(S.card==='索取電子喜帖'){
@@ -581,17 +614,30 @@ function back(step){
 /* storage */
 function getE(){try{return JSON.parse(localStorage.getItem('rsvp_list')||'[]');}catch(e){return[];}}
 function setE(l){localStorage.setItem('rsvp_list',JSON.stringify(l));}
-function saveEntry(a){const e={name:S.name,attend:a?'出席':'不出席',relation:S.relation||'—',count:a?(S.count||'—'):'—',veg:a?(S.veg||'—'):'—',kids:a?(S.kids||'—'):'—',card:a?(S.card==='索取電子喜帖'&&S.email?S.card+'（'+S.email+'）':(S.card||'—')):'—',wish:S.wish||'',time:new Date().toLocaleString('zh-TW')};let l=getE();if(editMode&&editIdx>=0&&editIdx<l.length)l[editIdx]=e;else l.push(e);setE(l);editMode=false;editIdx=-1;
-/* GAS submission with fallback */
-if(GAS_URL){
-  fetch(GAS_URL,{
-    method:'POST',
-    headers:{'Content-Type':'text/plain;charset=utf-8'}, // 避免 CORS preflight
-    body:JSON.stringify(e)
-  }).then(r=>r.json()).then(res=>{
-    if(!res.ok)showFallback(e);
-  }).catch(()=>{showFallback(e);});
-}
+function saveEntry(a){
+  console.log('送出前 S =', JSON.stringify(S));
+  const e={
+    name:S.name,
+    attend:a?'出席':'不出席',
+    relation:S.relation||'—',
+    count:a?(S.count||'—'):'—',
+    veg:a?(S.veg||'—'):'—',
+    kids:a?(S.kids||'—'):'—',
+    card:a?(S.card||'—'):'—',
+    email:(a&&S.card==='索取電子喜帖'&&S.email)?S.email:'—',
+    wish:S.wish||'',
+    time:new Date().toLocaleString('zh-TW')
+  };
+  let l=getE();
+  if(editMode&&editIdx>=0&&editIdx<l.length)l[editIdx]=e;else l.push(e);
+  setE(l);editMode=false;editIdx=-1;
+  if(GAS_URL){
+    fetch(GAS_URL,{
+      method:'POST',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(e)
+    }).then(r=>r.json()).then(res=>{if(!res.ok)showFallback(e);}).catch(()=>{showFallback(e);});
+  }
 }
 function showFallback(e){const txt='【婚禮RSVP回覆】\n姓名：'+e.name+'\n出席：'+e.attend+'\n關係：'+e.relation+'\n人數：'+e.count+'\n素食：'+e.veg+'\n兒童椅：'+e.kids+'\n喜帖：'+e.card+'\n祝福：'+(e.wish||'（無）')+'\n時間：'+e.time;document.getElementById('fallbackText').value=txt;document.getElementById('fallbackModal').classList.add('show');}
 function copyFallback(){const t=document.getElementById('fallbackText');t.select();t.setSelectionRange(0,99999);navigator.clipboard.writeText(t.value).catch(()=>{document.execCommand('copy');});window.open('https://lin.ee/9T5c7Z2','_blank');closeFallback();}
@@ -628,11 +674,11 @@ function petalBurst(){
 }
 
 /* submit */
-function submitYes(){S.email='';document.getElementById('cardEmail').value='';S.wish=document.getElementById('wishA').value;saveEntry(true);document.getElementById('formArea').style.display='none';const t=document.getElementById('ticketArea');t.classList.add('show');document.getElementById('tkGuest').textContent=S.name;document.getElementById('ticketIntro').innerHTML=S.name+'，<br>這是你的入場券！<br><span style="font-size:15px;color:var(--ink3);">期待在婚禮現場與你相聚。</span>';t.scrollIntoView({behavior:'smooth',block:'start'});petalBurst();}
+function submitYes(){S.wish=document.getElementById('wishA').value;saveEntry(true);document.getElementById('formArea').style.display='none';const t=document.getElementById('ticketArea');t.classList.add('show');document.getElementById('tkGuest').textContent=S.name;document.getElementById('ticketIntro').innerHTML=S.name+'，<br>這是你的入場券！<br><span style="font-size:15px;color:var(--ink3);">期待在婚禮現場與你相聚。</span>';t.scrollIntoView({behavior:'smooth',block:'start'});petalBurst();}
 function submitNo(){S.wish=document.getElementById('wishD').value;saveEntry(false);document.getElementById('formArea').style.display='none';const d=document.getElementById('declineArea');d.classList.add('show');d.scrollIntoView({behavior:'smooth',block:'start'});petalBurst();}
 
 /* edit / fill again */
-function resetForm(){S.name='';S.attend=null;S.relation=null;S.count=null;S.veg=null;S.kids=null;S.card=null;S.wish='';document.getElementById('inName').value='';document.getElementById('wishA').value='';document.getElementById('wishD').value='';document.querySelectorAll('.oc').forEach(o=>o.classList.remove('sel'));document.querySelectorAll('.err-msg').forEach(e=>e.style.display='none');document.getElementById('formArea').style.display='';document.getElementById('ticketArea').classList.remove('show');document.getElementById('ticketArea').style.display='none';document.getElementById('declineArea').classList.remove('show');document.getElementById('declineArea').style.display='none';show(1);document.getElementById('formArea').scrollIntoView({behavior:'smooth',block:'start'});}
+function resetForm(){S.name='';S.attend=null;S.relation=null;S.count=null;S.veg=null;S.kids=null;S.card=null;S.email='';S.wish='';document.getElementById('inName').value='';document.getElementById('cardEmail').value='';document.getElementById('wishA').value='';document.getElementById('wishD').value='';document.querySelectorAll('.oc').forEach(o=>o.classList.remove('sel'));document.querySelectorAll('.err-msg').forEach(e=>e.style.display='none');document.getElementById('formArea').style.display='';document.getElementById('ticketArea').classList.remove('show');document.getElementById('ticketArea').style.display='none';document.getElementById('declineArea').classList.remove('show');document.getElementById('declineArea').style.display='none';show(1);document.getElementById('formArea').scrollIntoView({behavior:'smooth',block:'start'});}
 function fillAgain(){editMode=false;editIdx=-1;resetForm();document.getElementById('ticketArea').style.display='';document.getElementById('declineArea').style.display='';}
 function editResponse(){const l=getE();if(!l.length)return;editMode=true;editIdx=l.length-1;const e=l[editIdx];S.name=e.name;document.getElementById('inName').value=e.name;document.getElementById('wishA').value=e.wish||'';document.getElementById('wishD').value=e.wish||'';document.getElementById('ticketArea').classList.remove('show');document.getElementById('ticketArea').style.display='none';document.getElementById('declineArea').classList.remove('show');document.getElementById('declineArea').style.display='none';document.getElementById('formArea').style.display='';document.getElementById('ticketArea').style.display='';document.getElementById('declineArea').style.display='';show(1);document.getElementById('formArea').scrollIntoView({behavior:'smooth',block:'start'});}
 dots();
@@ -681,9 +727,9 @@ async function renderDash(){
 
   /* 表格 */
   if(!l.length){w.innerHTML='<div class="dash-empty">尚無回覆資料</div>';return;}
-  let h='<table class="dtbl"><thead><tr><th>#</th><th>姓名</th><th>出席</th><th>關係</th><th>人數</th><th>素食</th><th>兒童椅</th><th>喜帖</th><th>祝福</th><th>時間</th></tr></thead><tbody>';
+  let h='<table class="dtbl"><thead><tr><th>#</th><th>姓名</th><th>出席</th><th>關係</th><th>人數</th><th>素食</th><th>兒童椅</th><th>喜帖</th><th>Email</th><th>祝福</th><th>時間</th></tr></thead><tbody>';
   l.forEach((e,i)=>{
-    h+=`<tr><td>${i+1}</td><td>${esc(e.name)}</td><td>${esc(e.attend)}</td><td>${esc(e.relation)}</td><td>${esc(e.count)}</td><td>${esc(e.veg)}</td><td>${esc(e.kids)}</td><td>${esc(e.card)}</td><td style="max-width:150px;word-break:break-word;">${esc(e.wish)||'—'}</td><td style="white-space:nowrap;font-size:12px;">${esc(e.time)}</td></tr>`;
+    h+=`<tr><td>${i+1}</td><td>${esc(e.name)}</td><td>${esc(e.attend)}</td><td>${esc(e.relation)}</td><td>${esc(e.count)}</td><td>${esc(e.veg)}</td><td>${esc(e.kids)}</td><td>${esc(e.card)}</td><td style="font-size:12px;word-break:break-all;">${esc(e.email)}</td><td style="max-width:150px;word-break:break-word;">${esc(e.wish)||'—'}</td><td style="white-space:nowrap;font-size:12px;">${esc(e.time)}</td></tr>`;
   });
   h+='</tbody></table>';
   w.innerHTML=h;
