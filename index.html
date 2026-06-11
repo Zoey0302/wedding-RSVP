@@ -26,7 +26,7 @@ body:hover #cur{opacity:1;}
 
 #floralBg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4;}
 
-.audio-bar{position:fixed;height: fit-content;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:10px;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border:1px solid var(--gold-xl);border-radius:28px;padding:7px 16px 7px 10px;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink3);}
+.audio-bar{position:fixed;height: fit-content;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:10px;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border:1px solid var(--gold-xl);border-radius:28px;padding:7px 7px 7px 7px;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink3);}
 .audio-bar button{width:30px;height:30px;border-radius:50%;border:none;background:var(--ink);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;flex-shrink:0;}
 .audio-bar button:hover{background:var(--gold);}
 
@@ -242,7 +242,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
   .ticket{padding:2rem 1.5rem;}
   .decline-msg{font-size:19px;}
   .dash-stats{grid-template-columns:1fr 1fr;}
-  .audio-bar{bottom:12px;right:12px;font-size:12px;padding:5px 12px 5px 8px;}
+  .audio-bar{bottom:12px;right:12px;font-size:12px;padding:5px 5px 5px 5px;}
   .admin-trigger{bottom:12px;left:12px;width:30px;height:30px;font-size:11px;}
   .comma-br::after {content: '\A';white-space: pre;display: block;}
   .comma-br {display: inline;}
@@ -281,7 +281,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
 <canvas id="burstCanvas"></canvas>
 
 <audio id="bgm" loop preload="auto" src="./music.mp3"></audio>
-<div class="audio-bar"><button id="audioBtn" onclick="toggleAudio()">▶</button><span>♪ Background Music</span></div>
+<div class="audio-bar"><button id="audioBtn" onclick="toggleAudio()">▶</button></div>
 <button class="admin-trigger" onclick="openAdmin()" title="後台管理">✦</button>
 
 <!-- ENTER OVERLAY — ENVELOPE -->
@@ -490,6 +490,7 @@ const QR_B64='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcBAMAAADpdNKy
 const S={name:'',attend:null,relation:null,count:null,veg:null,kids:null,card:null,email:'',wish:''};
 let cur=1,editMode=false,editIdx=-1;
 const ADMIN_PW='20260912';
+const GAS_URL='https://script.google.com/macros/s/AKfycbz1i35M_e3SPTLeP3UM5UpIVS2n42mNFxtBuXnNjYk9MHFMdlYa6gRl8zAmAS0rWQX1VQ/exec';
 const WEDDING=new Date(2026,8,12,10,0,0);
 
 document.getElementById('qrImg').src=QR_B64;
@@ -582,7 +583,6 @@ function getE(){try{return JSON.parse(localStorage.getItem('rsvp_list')||'[]');}
 function setE(l){localStorage.setItem('rsvp_list',JSON.stringify(l));}
 function saveEntry(a){const e={name:S.name,attend:a?'出席':'不出席',relation:S.relation||'—',count:a?(S.count||'—'):'—',veg:a?(S.veg||'—'):'—',kids:a?(S.kids||'—'):'—',card:a?(S.card==='索取電子喜帖'&&S.email?S.card+'（'+S.email+'）':(S.card||'—')):'—',wish:S.wish||'',time:new Date().toLocaleString('zh-TW')};let l=getE();if(editMode&&editIdx>=0&&editIdx<l.length)l[editIdx]=e;else l.push(e);setE(l);editMode=false;editIdx=-1;
 /* GAS submission with fallback */
-const GAS_URL='https://script.google.com/macros/s/AKfycbz1i35M_e3SPTLeP3UM5UpIVS2n42mNFxtBuXnNjYk9MHFMdlYa6gRl8zAmAS0rWQX1VQ/exec';
 if(GAS_URL){
   fetch(GAS_URL,{
     method:'POST',
