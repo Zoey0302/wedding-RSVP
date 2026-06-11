@@ -67,10 +67,8 @@ section{position:relative;z-index:2;}
   opacity:0;
   transform:translateY(12px);
   transition:opacity .6s ease,transform .6s ease;
-  display: block;
   margin-bottom: 0;
 }
-.reveal-line:nth-child(2) { margin-bottom: 1.4em; }
 .reveal-line.vis{opacity:1;transform:translateY(0);}
 
 /* ===== FORM ===== */
@@ -248,7 +246,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
   .admin-trigger{bottom:12px;left:12px;width:30px;height:30px;font-size:11px;}
   .comma-br::after {content: '\A';white-space: pre;display: block;}
   .comma-br {display: inline;}
-  .reveal-line:nth-child(2) { margin-bottom: 1em; }
+  .reveal-line:nth-child(2) { margin-bottom: 1.5em; }
 }
 </style>
 <script>
@@ -305,7 +303,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
   <div style="margin:1.6rem 0 2.5rem;display:flex;align-items:center;justify-content:center;gap:18px;opacity:0;animation:fu .8s .9s forwards;">
     <div style="flex:0 0 60px;height:1px;background:var(--gold-l);"></div>
     <div style="font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:400;color:var(--ink);letter-spacing:.08em;line-height:1;">
-      <span style="color:var(--gold);font-style:italic;font-size:.45em;letter-spacing:.3em;display:block;text-align:center;margin-bottom:4px;">Save the date</span>
+      <span style="color:var(--gold);font-style:italic;font-size:.45em;letter-spacing:.3em;display:block;text-align:center;margin-bottom:4px;">Save the Date</span>
       09.12
     </div>
     <div style="flex:0 0 60px;height:1px;background:var(--gold-l);"></div>
@@ -354,11 +352,11 @@ table.dtbl .del-btn:hover{color:#b04040;}
 
   <div class="step" id="s3"><div class="q-ey">C.</div><div class="q-t">你與新人的關係是？</div><div class="opts"><div class="oc" onclick="pick('relation','男方親人',this)"><div class="rd"></div>男方親人</div><div class="oc" onclick="pick('relation','女方親人',this)"><div class="rd"></div>女方親人</div><div class="oc" onclick="pick('relation','男方朋友',this)"><div class="rd"></div>男方朋友</div><div class="oc" onclick="pick('relation','女方朋友',this)"><div class="rd"></div>女方朋友</div><div class="oc" onclick="pick('relation','共同朋友',this)"><div class="rd"></div>共同朋友</div></div><div class="err-msg" id="e3">請選擇你與新人的關係</div><div class="btn-row"><button class="bb" onclick="back(3)">← 返回</button><button class="bn" onclick="next(3)">繼續 →</button></div></div>
 
-  <div class="step" id="s4"><div class="q-ey">D.</div><div class="q-t">加上你自己，總共幾個人出席呢？</div><div class="opts"><div class="oc" onclick="pick('count','1',this)"><div class="rd"></div>1 位</div><div class="oc" onclick="pick('count','2',this)"><div class="rd"></div>2 位</div><div class="oc" onclick="pick('count','3',this)"><div class="rd"></div>3 位</div><div class="oc" onclick="pick('count','其他',this)"><div class="rd"></div>其他<input type="number" min="4" max="20" placeholder="人數" id="countOther" onclick="event.stopPropagation()" oninput="S.count=this.value"/></div></div><div class="err-msg" id="e4">請選擇出席人數</div><div class="btn-row"><button class="bb" onclick="back(4)">← 返回</button><button class="bn" onclick="next(4)">繼續 →</button></div></div>
+  <div class="step" id="s4"><div class="q-ey">D.</div><div class="q-t">加上你自己，總共幾個人出席呢？</div><div class="opts"><div class="oc" onclick="pick('count','1',this)"><div class="rd"></div>1 位</div><div class="oc" onclick="pick('count','2',this)"><div class="rd"></div>2 位</div><div class="oc" onclick="pick('count','3',this)"><div class="rd"></div>3 位</div><div class="oc" onclick="pick('count','其他',this)"><div class="rd"></div>其他<input type="number" min="4" max="20" placeholder="人數" style="width: 100px;" id="countOther" onclick="event.stopPropagation()" oninput="S.count=this.value"/></div></div><div class="err-msg" id="e4">請選擇出席人數</div><div class="btn-row"><button class="bb" onclick="back(4)">← 返回</button><button class="bn" onclick="next(4)">繼續 →</button></div></div>
 
-  <div class="step" id="s5"><div class="q-ey">E.</div><div class="q-t">需要幾套素食餐點呢？</div><div class="opts"><div class="oc" onclick="pick('veg','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('veg','1',this)"><div class="rd"></div>1 套</div><div class="oc" onclick="pick('veg','2',this)"><div class="rd"></div>2 套</div><div class="oc" onclick="pick('veg','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="20" placeholder="套數" id="vegOther" onclick="event.stopPropagation()" oninput="S.veg=this.value"/></div></div><div class="err-msg" id="e5">請選擇素食餐點數量</div><div class="btn-row"><button class="bb" onclick="back(5)">← 返回</button><button class="bn" onclick="next(5)">繼續 →</button></div></div>
+  <div class="step" id="s5"><div class="q-ey">E.</div><div class="q-t">需要幾套素食餐點呢？</div><div class="opts"><div class="oc" onclick="pick('veg','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('veg','1',this)"><div class="rd"></div>1 套</div><div class="oc" onclick="pick('veg','2',this)"><div class="rd"></div>2 套</div><div class="oc" onclick="pick('veg','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="20" placeholder="套數" style="width: 100px;" id="vegOther" onclick="event.stopPropagation()" oninput="S.veg=this.value"/></div></div><div class="err-msg" id="e5">請選擇素食餐點數量</div><div class="btn-row"><button class="bb" onclick="back(5)">← 返回</button><button class="bn" onclick="next(5)">繼續 →</button></div></div>
 
-  <div class="step" id="s6"><div class="q-ey">F.</div><div class="q-t">需要幾張兒童座椅呢？</div><div class="opts"><div class="oc" onclick="pick('kids','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('kids','1',this)"><div class="rd"></div>1 張</div><div class="oc" onclick="pick('kids','2',this)"><div class="rd"></div>2 張</div><div class="oc" onclick="pick('kids','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="10" placeholder="張數" id="kidsOther" onclick="event.stopPropagation()" oninput="S.kids=this.value"/></div></div><div class="err-msg" id="e6">請選擇兒童座椅數量</div><div class="btn-row"><button class="bb" onclick="back(6)">← 返回</button><button class="bn" onclick="next(6)">繼續 →</button></div></div>
+  <div class="step" id="s6"><div class="q-ey">F.</div><div class="q-t">需要幾張兒童座椅呢？</div><div class="opts"><div class="oc" onclick="pick('kids','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('kids','1',this)"><div class="rd"></div>1 張</div><div class="oc" onclick="pick('kids','2',this)"><div class="rd"></div>2 張</div><div class="oc" onclick="pick('kids','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="10" placeholder="張數" style="width: 100px;" id="kidsOther" onclick="event.stopPropagation()" oninput="S.kids=this.value"/></div></div><div class="err-msg" id="e6">請選擇兒童座椅數量</div><div class="btn-row"><button class="bb" onclick="back(6)">← 返回</button><button class="bn" onclick="next(6)">繼續 →</button></div></div>
 
   <div class="step" id="s7"><div class="q-ey">G.</div><div class="q-t">是否需要索取喜帖？</div><div class="opts"><div class="oc" onclick="pick('card','索取電子喜帖',this)"><div class="rd"></div>索取電子喜帖</div><div class="oc" onclick="pick('card','索取實體喜帖',this)"><div class="rd"></div>索取實體喜帖</div><div class="oc" onclick="pick('card','不需要',this)"><div class="rd"></div>不需要哦！我會加入 LINE 官方帳號！</div></div><div class="err-msg" id="e7">請選擇是否索取喜帖</div><div class="btn-row"><button class="bb" onclick="back(7)">← 返回</button><button class="bn" onclick="next(7)">繼續 →</button></div></div>
 
@@ -385,7 +383,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
       <div class="tk-l">地點 VENUE</div><div class="tk-v">安坑聖谷行道會，新北市新店<br><span style="font-size:12px;color:var(--gold);">🅿️ 當天提供免費停車</span></div>
       <div class="tk-l">賓客 GUEST</div><div class="tk-v" id="tkGuest">—</div>
     </div>
-    <div style="font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--ink3);line-height:1.8;">💍 小型證婚典禮　🍰 當天有小茶點，不收禮金</div>
+    <div style="font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--ink3);line-height:1.8;">💍 小型證婚典禮　🍰 當天有小茶點，敬謝禮金</div>
   </div>
   <div style="margin-top:2rem;padding:1.5rem;border:1px solid #c6e6c0;border-radius:6px;background:rgba(6,199,85,.04);">
     <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:.3rem;">📣 加入官方 LINE 查看更多婚禮資訊</div>
