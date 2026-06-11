@@ -497,10 +497,7 @@ function show(n){document.querySelectorAll('.step').forEach(s=>s.classList.remov
 function pick(key,val,el,nxt){S[key]=val;el.parentNode.querySelectorAll('.oc').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');const e=document.getElementById('e'+cur);if(e)e.style.display='none';if(nxt)setTimeout(()=>show(nxt),280);}
 function next(step){if(step===1){const n=document.getElementById('inName').value.trim();if(!n){document.getElementById('e1').style.display='block';return;}S.name=n;show(2);}else if(step===2){if(!S.attend){document.getElementById('e2').style.display='block';return;}if(S.attend==='yes')show(3);else show(9);}
 else if(step===3){
-  if(!S.relation){document.getElementById('e3').style.display='block';return;}
-  const skipDEF=['男方朋友','女方朋友','共同朋友'];
-  if(skipDEF.includes(S.relation)) show(7);
-  else show(4);
+  show(4);
 }
 else if(step===4){
   if(!S.count){document.getElementById('e4').style.display='block';return;}
