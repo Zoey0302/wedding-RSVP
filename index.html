@@ -203,6 +203,17 @@ table.dtbl .del-btn:hover{color:#b04040;}
 .env-flap{position:absolute;top:0;left:0;right:0;height:55%;z-index:3;transform-origin:top center;transition:transform .8s ease;background:linear-gradient(180deg,#e8ddd0 0%,#ddd0c0 100%);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:4px 4px 0 0;}
 .env-flap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent 60%);}
 .envelope-wrap.opened .env-flap{transform:rotateX(180deg);}
+@keyframes floatEnvelope{
+  0%,100%{transform:translateY(0) rotate(-1deg);}
+  50%{transform:translateY(-12px) rotate(1deg);}
+}
+.enter-overlay .envelope-wrap{
+  animation:floatEnvelope 3s ease-in-out infinite;
+}
+/* 打開後停止浮動，避免跟開信動畫打架 */
+.envelope-wrap.opened{
+  animation:none;
+}
 
 .env-seal{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;z-index:4;font-size:18px;color:#fff;box-shadow:0 2px 8px rgba(176,141,106,.3);transition:opacity .4s .2s,transform .4s .2s;}
 .envelope-wrap.opened .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
