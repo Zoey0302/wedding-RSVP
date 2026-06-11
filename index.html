@@ -239,6 +239,8 @@ table.dtbl .del-btn:hover{color:#b04040;}
   .dash-stats{grid-template-columns:1fr 1fr;}
   .audio-bar{bottom:12px;right:12px;font-size:12px;padding:5px 12px 5px 8px;}
   .admin-trigger{bottom:12px;left:12px;width:30px;height:30px;font-size:11px;}
+  .comma-br::after {content: '\A';white-space: pre;display: block;}
+  .comma-br {display: inline;}
 }
 </style>
 <script>
@@ -292,7 +294,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
   <div class="hero-ey">We're Getting Married</div>
   <div class="hero-names">Morris<span class="amp">ღ</span>Zoe</div>
   <div class="hero-zh">林泓錡 ∣ 張以柔</div>
-  <div style="margin:1.6rem 0 .6rem;display:flex;align-items:center;justify-content:center;gap:18px;opacity:0;animation:fu .8s .9s forwards;">
+  <div style="margin:1.6rem 0 2.5rem;display:flex;align-items:center;justify-content:center;gap:18px;opacity:0;animation:fu .8s .9s forwards;">
     <div style="flex:0 0 60px;height:1px;background:var(--gold-l);"></div>
     <div style="font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:400;color:var(--ink);letter-spacing:.08em;line-height:1;">
       <span style="color:var(--gold);font-style:italic;font-size:.45em;letter-spacing:.3em;display:block;text-align:center;margin-bottom:4px;">Save the date</span>
@@ -325,7 +327,12 @@ table.dtbl .del-btn:hover{color:#b04040;}
 
 <!-- LETTER -->
 <section class="letter" id="letterSection">
-  <p class="letter-body"><span class="reveal-line">親愛的家人和朋友，</span><span class="reveal-line">謝謝你一路以來的參與和陪伴，在某個時刻，走進我們的生命裡，成為我們人生棋盤上重要的推手。</span><span class="reveal-line">這六年的點點滴滴，我們從彼此身旁的同行者，慢慢學會如何並肩、思考與等待，</span><span class="reveal-line">現在，我們終於準備好牽著彼此的手，一起前往人生的下個階段。</span></p>
+  <p class="letter-body">
+    <span class="reveal-line">親愛的家人和朋友<span class="comma-br">，</span></span>
+    <span class="reveal-line">謝謝你一路以來的參與和陪伴<span class="comma-br">，</span>在某個時刻<span class="comma-br">，</span>走進我們的生命裡<span class="comma-br">，</span>成為我們人生棋盤上重要的推手。</span>
+    <span class="reveal-line">這六年的點點滴滴<span class="comma-br">，</span>我們從彼此身旁的同行者<span class="comma-br">，</span>慢慢學會如何並肩、思考與等待<span class="comma-br">，</span></span>
+    <span class="reveal-line">現在<span class="comma-br">，</span>我們終於準備好牽著彼此的手<span class="comma-br">，</span>一起前往人生的下個階段。</span>
+  </p>
   <div class="letter-cta" id="letterCta">誠摯邀請你一同分享我們的喜悅</div>
 </section>
 
