@@ -361,22 +361,25 @@ table.dtbl .del-btn:hover{color:#b04040;}
 
   <div class="step" id="s6"><div class="q-ey">F.</div><div class="q-t">需要幾張兒童座椅呢？</div><div class="opts"><div class="oc" onclick="pick('kids','不需要',this)"><div class="rd"></div>不需要哦！</div><div class="oc" onclick="pick('kids','1',this)"><div class="rd"></div>1 張</div><div class="oc" onclick="pick('kids','2',this)"><div class="rd"></div>2 張</div><div class="oc" onclick="pick('kids','其他',this)"><div class="rd"></div>其他<input type="number" min="3" max="10" placeholder="張數" style="width: 100px;" id="kidsOther" onclick="event.stopPropagation()" oninput="S.kids=this.value"/></div></div><div class="err-msg" id="e6">請選擇兒童座椅數量</div><div class="btn-row"><button class="bb" onclick="back(6)">← 返回</button><button class="bn" onclick="next(6)">繼續 →</button></div></div>
 
-  <div class="step" id="s7"><div class="q-ey">G.</div><div class="q-t">是否需要索取喜帖？</div>
-  <div class="oc" onclick="pick('card','索取電子喜帖',this)">
-    <div class="rd"></div>
-    索取電子喜帖
-    <input type="email" placeholder="輸入 Email" style="flex:1;min-width:0;margin-left:12px;padding:6px 2px;border:none;border-bottom:1px solid var(--gold-xl);background:transparent;font-size:14px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);outline:none;" id="cardEmail" onclick="event.stopPropagation()" oninput="S.email=this.value"/>
-  </div>
-  <div class="oc" onclick="pick('card','索取實體喜帖',this)">
-    <div class="rd"></div>
-    索取實體喜帖
-  </div>
-  <div class="oc" onclick="pick('card','不需要',this)">
-    <div class="rd"></div>
-    不需要哦！我會加入 LINE 官方帳號！
-  </div>
-</div>
-  <div class="err-msg" id="e7">請選擇是否索取喜帖</div>
+  <div class="step" id="s7">
+    <div class="q-ey">G.</div>
+    <div class="q-t">是否需要索取喜帖？</div>
+    <div class="opts">
+      <div class="oc" onclick="pick('card','索取電子喜帖',this)">
+        <div class="rd"></div>
+        索取電子喜帖
+        <input type="email" placeholder="輸入 Email" style="flex:1;min-width:0;margin-left:12px;padding:6px 2px;border:none;border-bottom:1px solid var(--gold-xl);background:transparent;font-size:14px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);outline:none;" id="cardEmail" onclick="event.stopPropagation()" oninput="S.email=this.value"/>
+      </div>
+      <div class="oc" onclick="pick('card','索取實體喜帖',this)">
+        <div class="rd"></div>
+        索取實體喜帖
+      </div>
+      <div class="oc" onclick="pick('card','不需要',this)">
+        <div class="rd"></div>
+        不需要哦！我會加入 LINE 官方帳號！
+      </div>
+    </div>
+    <div class="err-msg" id="e7">請選擇是否索取喜帖</div>
     <div class="btn-row">
       <button class="bb" onclick="back(7)">← 返回</button>
       <button class="bn" onclick="next(7)">繼續 →</button>
