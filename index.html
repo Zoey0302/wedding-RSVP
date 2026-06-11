@@ -241,6 +241,11 @@ table.dtbl .del-btn:hover{color:#b04040;}
   .admin-trigger{bottom:12px;left:12px;width:30px;height:30px;font-size:11px;}
 }
 </style>
+<script>
+  function scrollToForm() {
+    document.getElementById('letterSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
 </head>
 <body>
 
@@ -268,7 +273,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
       <div class="ec-msg">誠摯邀請你<br>一同分享我們的喜悅</div>
     </div>
   </div>
-  <div class="eo-hint">輕觸信封開啟邀請函</div>
+  <div class="eo-hint">輕觸開啟邀請函</div>
 </div>
 
 <!-- FALLBACK MODAL -->
@@ -290,13 +295,10 @@ table.dtbl .del-btn:hover{color:#b04040;}
   <div style="margin:1.6rem 0 .6rem;display:flex;align-items:center;justify-content:center;gap:18px;opacity:0;animation:fu .8s .9s forwards;">
     <div style="flex:0 0 60px;height:1px;background:var(--gold-l);"></div>
     <div style="font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:400;color:var(--ink);letter-spacing:.08em;line-height:1;">
-      <span style="color:var(--gold);font-style:italic;font-size:.45em;letter-spacing:.3em;display:block;text-align:center;margin-bottom:4px;">SEPTEMBER</span>
+      <span style="color:var(--gold);font-style:italic;font-size:.45em;letter-spacing:.3em;display:block;text-align:center;margin-bottom:4px;">Save the date</span>
       09.12
     </div>
     <div style="flex:0 0 60px;height:1px;background:var(--gold-l);"></div>
-  </div>
-  <div style="font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--ink3);letter-spacing:.15em;margin-bottom:1.2rem;opacity:0;animation:fu .8s 1s forwards;">
-    Saturday · Two Thousand and Twenty-Six
   </div>
   <div class="countdown" id="countdown">
     <div class="cd-unit"><span class="cd-num" id="cdD">--</span><span class="cd-label">days</span></div>
@@ -312,7 +314,13 @@ table.dtbl .del-btn:hover{color:#b04040;}
     <span>🕙 上午 10:00 – 12:00</span>
     <span>📍 安坑聖谷行道會</span>
   </div>
-  <div class="hero-scroll">scroll ↓</div>
+  
+  <div 
+    onclick="scrollToForm()"
+    class="hero-scroll"
+  >
+    往下滑動 ↓
+  </div>
 </section>
 
 <!-- LETTER -->
