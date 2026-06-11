@@ -361,10 +361,19 @@ table.dtbl .del-btn:hover{color:#b04040;}
   <div class="step" id="s7"><div class="q-ey">G.</div><div class="q-t">是否需要索取喜帖？</div><div class="opts"><div class="oc" onclick="pick('card','索取電子喜帖',this)"><div class="rd"></div>索取電子喜帖</div><div class="oc" onclick="pick('card','索取實體喜帖',this)"><div class="rd"></div>索取實體喜帖</div><div class="oc" onclick="pick('card','不需要',this)"><div class="rd"></div>不需要哦！我會加入 LINE 官方帳號！</div></div><div class="err-msg" id="e7">請選擇是否索取喜帖</div><div class="btn-row"><button class="bb" onclick="back(7)">← 返回</button><button class="bn" onclick="next(7)">繼續 →</button></div></div>
 
   <div class="step" id="s8"><div class="q-ey">H.</div><div class="q-t">想給我們的祝福話語<span class="opt">（選填）</span></div>
-  <textarea class="ta" placeholder="寫下你最真摯的祝福…" id="wishA" rows="4"></textarea>
-  <div class="btn-row">
-    <button class="bb" onclick="back(8)">← 返回</button>
-    <button class="bn" onclick="submitYes()">送出回覆 ✦</button>
+    <textarea class="ta" placeholder="寫下你最真摯的祝福…" id="wishA" rows="4"></textarea>
+    <div class="btn-row">
+      <button class="bb" onclick="back(8)">← 返回</button>
+      <button class="bn" onclick="submitYes()">送出回覆 ✦</button>
+    </div>
+  </div>
+
+  <div class="step" id="s9"><div class="q-ey">H.</div><div class="q-t">想給我們的祝福話語<span class="opt">（選填）</span></div>
+    <textarea class="ta" placeholder="寫下你最真摯的祝福…" id="wishD" rows="4"></textarea>
+    <div class="btn-row">
+      <button class="bb" onclick="back(9)">← 返回</button>
+      <button class="bn" onclick="submitNo()">送出祝福 ✦</button>
+    </div>
   </div>
 </section>
 
@@ -496,7 +505,7 @@ function dots(){const c=document.getElementById('progDots');c.innerHTML='';for(l
 function show(n){document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));const el=document.getElementById('s'+n);if(el){el.classList.add('active');cur=n;}dots();document.getElementById('formArea').scrollIntoView({behavior:'smooth',block:'start'});}
 function pick(key,val,el,nxt){S[key]=val;el.parentNode.querySelectorAll('.oc').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');const e=document.getElementById('e'+cur);if(e)e.style.display='none';if(nxt)setTimeout(()=>show(nxt),280);}
 function next(step){if(step===1){const n=document.getElementById('inName').value.trim();if(!n){document.getElementById('e1').style.display='block';return;}S.name=n;show(2);}
-else if(step===2){if(!S.attend){document.getElementById('e2').style.display='block';return;}if(S.attend==='yes')show(3);else show(8);}
+else if(step===2){if(!S.attend){document.getElementById('e2').style.display='block';return;}if(S.attend==='yes')show(3);else show(9);}
 else if(step===3){
   show(4);
 }
