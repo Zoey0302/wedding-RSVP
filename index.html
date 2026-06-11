@@ -253,6 +253,9 @@ table.dtbl .del-btn:hover{color:#b04040;}
   function scrollToForm() {
     document.getElementById('letterSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  function goToGoogleMaps(params) {
+    window.open('https://maps.app.goo.gl/tVQFnR1FkB8o6eFQ8', '_blank');
+  }
 </script>
 </head>
 <body>
@@ -320,7 +323,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
   <div class="hero-pills">
     <span>💍 小型證婚典禮</span>
     <span>🕙 上午 10:00 – 12:00</span>
-    <span>📍 安坑聖谷行道會</span>
+    <span onclick="goToGoogleMaps()">📍 安坑聖谷行道會</span>
   </div>
   
   <div 
@@ -389,7 +392,7 @@ table.dtbl .del-btn:hover{color:#b04040;}
     <div class="tk-sep">
       <div class="tk-l">日期 DATE</div><div class="tk-v">2026 年 9 月 12 日　上午 10:00 – 12:00</div>
       <div class="tk-l">入場 ADMISSION</div><div class="tk-v">上午 9:30 開始入場</div>
-      <div class="tk-l">地點 VENUE</div><div class="tk-v">安坑聖谷行道會，新北市新店<br><span style="font-size:12px;color:var(--gold);">🅿️ 當天提供免費停車</span></div>
+      <div class="tk-l">地點 VENUE</div><div class="tk-v">安坑聖谷行道會，新北市新店</div>
       <div class="tk-l">賓客 GUEST</div><div class="tk-v" id="tkGuest">—</div>
     </div>
     <div style="font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--ink3);line-height:1.8;">💍 小型證婚典禮　🍰 當天有小茶點，敬謝禮金</div>
