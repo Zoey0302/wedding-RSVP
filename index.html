@@ -26,7 +26,7 @@ body:hover #cur{opacity:1;}
 
 #floralBg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4;}
 
-.audio-bar{position:fixed;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:10px;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border:1px solid var(--gold-xl);border-radius:28px;padding:7px 16px 7px 10px;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink3);}
+.audio-bar{position:fixed;height: fit-content;top:20px;right:20px;z-index:9999;display:flex;align-items:center;gap:10px;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border:1px solid var(--gold-xl);border-radius:28px;padding:7px 16px 7px 10px;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink3);}
 .audio-bar button{width:30px;height:30px;border-radius:50%;border:none;background:var(--ink);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;flex-shrink:0;}
 .audio-bar button:hover{background:var(--gold);}
 
@@ -657,7 +657,9 @@ async function renderDash(){
 
   let l=[];
   try{
-    const res=await fetch(GAS_URL+'?pw='+encodeURIComponent(ADMIN_PW));
+    const res=await fetch(GAS_URL+'?pw='+encodeURIComponent(ADMIN_PW),{
+      redirect:'follow'
+    });
     const data=await res.json();
     if(!data.ok){
       w.innerHTML='<div class="dash-empty">讀取失敗：'+(data.error||'未知錯誤')+'</div>';
@@ -665,7 +667,8 @@ async function renderDash(){
     }
     l=data.list||[];
   }catch(err){
-    w.innerHTML='<div class="dash-empty">連線失敗，請檢查網路或稍後重試</div>';
+    console.error('renderDash error:', err);
+    w.innerHTML='<div class="dash-empty">連線失敗：'+err.message+'</div>';
     return;
   }
 
