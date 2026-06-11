@@ -495,7 +495,8 @@ function dots(){const c=document.getElementById('progDots');c.innerHTML='';for(l
 /* nav */
 function show(n){document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));const el=document.getElementById('s'+n);if(el){el.classList.add('active');cur=n;}dots();document.getElementById('formArea').scrollIntoView({behavior:'smooth',block:'start'});}
 function pick(key,val,el,nxt){S[key]=val;el.parentNode.querySelectorAll('.oc').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');const e=document.getElementById('e'+cur);if(e)e.style.display='none';if(nxt)setTimeout(()=>show(nxt),280);}
-function next(step){if(step===1){const n=document.getElementById('inName').value.trim();if(!n){document.getElementById('e1').style.display='block';return;}S.name=n;show(2);}else if(step===2){if(!S.attend){document.getElementById('e2').style.display='block';return;}if(S.attend==='yes')show(3);else show(9);}
+function next(step){if(step===1){const n=document.getElementById('inName').value.trim();if(!n){document.getElementById('e1').style.display='block';return;}S.name=n;show(2);}
+else if(step===2){if(!S.attend){document.getElementById('e2').style.display='block';return;}if(S.attend==='yes')show(3);else show(8);}
 else if(step===3){
   show(4);
 }
