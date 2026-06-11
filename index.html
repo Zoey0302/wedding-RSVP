@@ -570,8 +570,16 @@ function getE(){try{return JSON.parse(localStorage.getItem('rsvp_list')||'[]');}
 function setE(l){localStorage.setItem('rsvp_list',JSON.stringify(l));}
 function saveEntry(a){const e={name:S.name,attend:a?'出席':'不出席',relation:S.relation||'—',count:a?(S.count||'—'):'—',veg:a?(S.veg||'—'):'—',kids:a?(S.kids||'—'):'—',card:a?(S.card==='索取電子喜帖'&&S.email?S.card+'（'+S.email+'）':(S.card||'—')):'—',wish:S.wish||'',time:new Date().toLocaleString('zh-TW')};let l=getE();if(editMode&&editIdx>=0&&editIdx<l.length)l[editIdx]=e;else l.push(e);setE(l);editMode=false;editIdx=-1;
 /* GAS submission with fallback */
-const GAS_URL=localStorage.getItem('rsvp_gas_url')||'';
-if(GAS_URL){fetch(GAS_URL,{method:'POST',body:JSON.stringify(e),mode:'no-cors'}).catch(()=>{showFallback(e);});}
+const GAS_URL='https://script.google.com/macros/s/AKfycbz1i35M_e3SPTLeP3UM5UpIVS2n42mNFxtBuXnNjYk9MHFMdlYa6gRl8zAmAS0rWQX1VQ/exec';
+if(GAS_URL){
+  fetch(GAS_URL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'}, // 避免 CORS preflight
+    body:JSON.stringify(e)
+  }).then(r=>r.json()).then(res=>{
+    if(!res.ok)showFallback(e);
+  }).catch(()=>{showFallback(e);});
+}
 }
 function showFallback(e){const txt='【婚禮RSVP回覆】\n姓名：'+e.name+'\n出席：'+e.attend+'\n關係：'+e.relation+'\n人數：'+e.count+'\n素食：'+e.veg+'\n兒童椅：'+e.kids+'\n喜帖：'+e.card+'\n祝福：'+(e.wish||'（無）')+'\n時間：'+e.time;document.getElementById('fallbackText').value=txt;document.getElementById('fallbackModal').classList.add('show');}
 function copyFallback(){const t=document.getElementById('fallbackText');t.select();t.setSelectionRange(0,99999);navigator.clipboard.writeText(t.value).catch(()=>{document.execCommand('copy');});window.open('https://lin.ee/9T5c7Z2','_blank');closeFallback();}
@@ -630,7 +638,41 @@ let adminLoggedIn=false;
 function openAdmin(){document.getElementById('adminOverlay').classList.add('show');if(adminLoggedIn)renderDash();}
 function closeAdmin(){document.getElementById('adminOverlay').classList.remove('show');}
 function tryLogin(){if(document.getElementById('pwInput').value===ADMIN_PW){adminLoggedIn=true;document.getElementById('adminLogin').style.display='none';document.getElementById('adminDash').style.display='block';renderDash();}else{document.getElementById('pwErr').style.display='block';setTimeout(()=>document.getElementById('pwErr').style.display='none',2000);}}
-function renderDash(){const l=getE();document.getElementById('dashDate').textContent=new Date().toLocaleDateString('zh-TW');const at=l.filter(e=>e.attend==='出席'),dc=l.filter(e=>e.attend==='不出席');const tg=at.reduce((s,e)=>{const n=parseInt(e.count);return s+(isNaN(n)?1:n);},0);const vt=at.reduce((s,e)=>{if(!e.veg||e.veg==='不需要'||e.veg==='—')return s;const n=parseInt(e.veg);return s+(isNaN(n)?0:n);},0);const kt=at.reduce((s,e)=>{if(!e.kids||e.kids==='不需要'||e.kids==='—')return s;const n=parseInt(e.kids);return s+(isNaN(n)?0:n);},0);document.getElementById('dashStats').innerHTML=`<div class="stat-card"><div class="num">${l.length}</div><div class="lbl">總回覆</div></div><div class="stat-card"><div class="num">${at.length}</div><div class="lbl">確認出席</div></div><div class="stat-card"><div class="num">${tg}</div><div class="lbl">總出席人數</div></div><div class="stat-card"><div class="num">${vt}</div><div class="lbl">素食份數</div></div><div class="stat-card"><div class="num">${kt}</div><div class="lbl">兒童座椅</div></div><div class="stat-card"><div class="num">${dc.length}</div><div class="lbl">無法出席</div></div>`;const w=document.getElementById('dashTableWrap');if(!l.length){w.innerHTML='<div class="dash-empty">尚無回覆資料</div>';return;}let h='<table class="dtbl"><thead><tr><th>#</th><th>姓名</th><th>出席</th><th>關係</th><th>人數</th><th>素食</th><th>兒童椅</th><th>喜帖</th><th>祝福</th><th>時間</th><th></th></tr></thead><tbody>';l.forEach((e,i)=>{h+=`<tr><td>${i+1}</td><td>${esc(e.name)}</td><td>${e.attend}</td><td>${esc(e.relation)}</td><td>${esc(e.count)}</td><td>${esc(e.veg)}</td><td>${esc(e.kids)}</td><td>${esc(e.card)}</td><td style="max-width:150px;word-break:break-word;">${esc(e.wish)||'—'}</td><td style="white-space:nowrap;font-size:12px;">${esc(e.time)}</td><td><button class="del-btn" onclick="window.delEntry(${i})" title="刪除">✕</button></td></tr>`;});h+='</tbody></table>';w.innerHTML=h;}
+async function renderDash(){
+  const w=document.getElementById('dashTableWrap');
+  document.getElementById('dashDate').textContent=new Date().toLocaleDateString('zh-TW');
+  w.innerHTML='<div class="dash-empty">載入中…</div>';
+
+  let l=[];
+  try{
+    const res=await fetch(GAS_URL+'?pw='+encodeURIComponent(ADMIN_PW));
+    const data=await res.json();
+    if(!data.ok){
+      w.innerHTML='<div class="dash-empty">讀取失敗：'+(data.error||'未知錯誤')+'</div>';
+      return;
+    }
+    l=data.list||[];
+  }catch(err){
+    w.innerHTML='<div class="dash-empty">連線失敗，請檢查網路或稍後重試</div>';
+    return;
+  }
+
+  /* 統計 */
+  const at=l.filter(e=>e.attend==='出席'),dc=l.filter(e=>e.attend==='不出席');
+  const tg=at.reduce((s,e)=>{const n=parseInt(e.count);return s+(isNaN(n)?1:n);},0);
+  const vt=at.reduce((s,e)=>{if(!e.veg||e.veg==='不需要'||e.veg==='—')return s;const n=parseInt(e.veg);return s+(isNaN(n)?0:n);},0);
+  const kt=at.reduce((s,e)=>{if(!e.kids||e.kids==='不需要'||e.kids==='—')return s;const n=parseInt(e.kids);return s+(isNaN(n)?0:n);},0);
+  document.getElementById('dashStats').innerHTML=`<div class="stat-card"><div class="num">${l.length}</div><div class="lbl">總回覆</div></div><div class="stat-card"><div class="num">${at.length}</div><div class="lbl">確認出席</div></div><div class="stat-card"><div class="num">${tg}</div><div class="lbl">總出席人數</div></div><div class="stat-card"><div class="num">${vt}</div><div class="lbl">素食份數</div></div><div class="stat-card"><div class="num">${kt}</div><div class="lbl">兒童座椅</div></div><div class="stat-card"><div class="num">${dc.length}</div><div class="lbl">無法出席</div></div>`;
+
+  /* 表格 */
+  if(!l.length){w.innerHTML='<div class="dash-empty">尚無回覆資料</div>';return;}
+  let h='<table class="dtbl"><thead><tr><th>#</th><th>姓名</th><th>出席</th><th>關係</th><th>人數</th><th>素食</th><th>兒童椅</th><th>喜帖</th><th>祝福</th><th>時間</th></tr></thead><tbody>';
+  l.forEach((e,i)=>{
+    h+=`<tr><td>${i+1}</td><td>${esc(e.name)}</td><td>${esc(e.attend)}</td><td>${esc(e.relation)}</td><td>${esc(e.count)}</td><td>${esc(e.veg)}</td><td>${esc(e.kids)}</td><td>${esc(e.card)}</td><td style="max-width:150px;word-break:break-word;">${esc(e.wish)||'—'}</td><td style="white-space:nowrap;font-size:12px;">${esc(e.time)}</td></tr>`;
+  });
+  h+='</tbody></table>';
+  w.innerHTML=h;
+}
 window.delEntry=function(i){if(!confirm('確定刪除此筆回覆？'))return;const l=getE();l.splice(i,1);setE(l);renderDash();};
 function esc(s){if(!s)return'—';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 function clearAll(){if(!confirm('確定清除全部回覆？'))return;localStorage.removeItem('rsvp_list');renderDash();}
