@@ -256,6 +256,18 @@ table.dtbl .del-btn:hover{color:#b04040;}
   function goToGoogleMaps(params) {
     window.open('https://maps.app.goo.gl/tVQFnR1FkB8o6eFQ8', '_blank');
   }
+  document.addEventListener('visibilitychange',()=>{
+    const a=document.getElementById('bgm');
+    if(document.hidden){
+      a.pause();
+    }else if(playing){
+      a.play().catch(()=>{});
+    }
+  });
+
+  window.addEventListener('pagehide',()=>{
+    document.getElementById('bgm').pause();
+  });
 </script>
 </head>
 <body>
